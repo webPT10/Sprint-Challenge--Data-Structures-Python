@@ -17,14 +17,14 @@ class RingBuffer:
     #adds the given element to the buffer
     def append(self, item):
         if len(self.storage) == self.capacity:
-            self.storage[self.oldest] = item
+            self.storage[self.oldest] = item # assign item to [], ?
+            self.oldest += 1 # increment oldest by 1
 
             if self.oldest > self.capacity-1:
                 self.oldest = 0
         
         else:
-            self.storage.append(item)
+            self.storage.append(item) # recurision, ?
         
-
     def get(self):
-        pass
+        return self.storage # returns the []/List which holds the elements
