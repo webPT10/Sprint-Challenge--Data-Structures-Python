@@ -39,12 +39,33 @@ class LinkedList:
         return False
 
     def reverse_list(self, node, prev):
-        count = 0
-        rooster = self.head
+        if node == None:
+            return None
 
-        while rooster is not None: # while self.head is not None:
+        nextNode = node.get_next()
+        if nextNode:
+            node.set_next(prev)
+            prev = node
+            node = prev.get_next()
 
-            self.add_to_head(rooster.value) # using add_to_head() method, pass in the self.HEAD.VALUE
+        if nextNode is None:
+            self.head = node
+            node.set_next(prev)
+            return
 
-            rooster = rooster.get_next() # call get_next() method, assigned to h, ?
+        self.reverse_list(nextNode, prev)
 
+        # count = 0
+        # rooster = self.head
+
+        # while rooster is not None: # while self.head is not None:
+
+        #     self.add_to_head(rooster.value) # using add_to_head() method, pass in the self.HEAD.VALUE
+
+        #     rooster = rooster.get_next() # call get_next() method, assigned to h, ?
+
+        #     if count == 0:
+
+        #         self.head.set_next(None) # ? on self.HEAD, apply set_next() method but set it to None as count == 0 ?
+
+        #         count += 1
