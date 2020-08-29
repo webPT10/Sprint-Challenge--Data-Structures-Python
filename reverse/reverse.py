@@ -40,6 +40,11 @@ class LinkedList:
 
     def reverse_list(self, node, prev):
         count = 0
-        h = self.head
+        rooster = self.head
 
-        
+        while rooster is not None: # while self.head is not None:
+
+            self.add_to_head(rooster.value) # using add_to_head() method, pass in the self.HEAD.VALUE
+
+            rooster = rooster.get_next() # call get_next() method, assigned to h, ?
+
